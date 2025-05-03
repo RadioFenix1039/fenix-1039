@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <title>Fenix FM 103.9</title>
   <style>
     * {
@@ -20,11 +21,19 @@
     body {
       background: url('fenix.png') no-repeat center center fixed;
       background-size: cover;
-      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+.top-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Ajusta la altura según lo que necesites */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1;
+}
 
     header {
       width: 100%;
@@ -32,16 +41,28 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      flex-wrap: wrap;
       z-index: 2;
     }
 
     header h1 {
+      font-family: 'Archivo Black', sans-serif;
       font-size: 2rem;
-      text-align: center;
-      flex-grow: 1;
       color: white;
+      text-align: center;
+      flex: 1;
     }
+
+    .logo-link {
+  color: white;
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
     .contact-btn {
       background-color: orange;
@@ -51,6 +72,7 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     .audio-player {
@@ -58,7 +80,6 @@
       padding: 20px;
       display: flex;
       justify-content: center;
-      position: relative;
       z-index: 2;
     }
 
@@ -90,38 +111,42 @@
       bottom: 0;
       width: 100%;
       height: 40%;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      
       z-index: 1;
     }
 
     @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
       header h1 {
         font-size: 1.5rem;
       }
 
-      .contact-btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-      }
-
+     
+    
       .whatsapp-btn {
         width: 50px;
         height: 50px;
         font-size: 24px;
       }
+
+      audio {
+        width: 90%;
+      }
     }
   </style>
-  <script>
-    function openWhatsApp() {
-      window.open('https://wa.me/549XXXXXXXXXX', '_blank');
-    }
-  </script>
 </head>
 <body>
+  <div class="top-gradient-overlay"></div>
+
   <header>
-    <div></div> <!-- spacer to center the h1 -->
-    <h1>Fenix FM 103.9</h1>
-    <button class="contact-btn">Contactanos</button>
+    <h1><a href="index.html" class="logo-link">FENIX FM 103.9</a></h1>
+
+    
   </header>
 
   <div class="audio-player">
@@ -131,8 +156,11 @@
     </audio>
   </div>
 
-  
-
+  <a class="whatsapp-btn" href="https://wa.me/5491132395587/" target="_blank">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 24 24">
+    <path d="M20.52 3.48A11.91 11.91 0 0 0 12.06 0C5.56 0 .2 5.36.2 11.96c0 2.12.56 4.19 1.63 6L0 24l6.28-1.64a11.83 11.83 0 0 0 5.78 1.48h.01c6.5 0 11.86-5.36 11.86-11.96 0-3.2-1.25-6.21-3.41-8.4zm-8.46 17.85h-.01a9.87 9.87 0 0 1-5.02-1.37l-.36-.21-3.72.97.99-3.63-.24-.38A9.89 9.89 0 0 1 2.2 11.96c0-5.43 4.43-9.85 9.86-9.85a9.81 9.81 0 0 1 6.98 2.88 9.87 9.87 0 0 1 2.89 6.98c0 5.43-4.43 9.85-9.86 9.85zm5.46-7.38c-.3-.15-1.76-.87-2.04-.97-.27-.1-.46-.15-.65.15-.19.3-.75.97-.92 1.17-.17.2-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.79-1.66-2.09-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.5.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.89-2.15-.23-.56-.47-.49-.65-.5l-.55-.01c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.5 1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.1 4.5.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.08 1.76-.72 2.01-1.41.25-.68.25-1.26.18-1.4-.07-.13-.26-.2-.55-.35z"/>
+  </svg>
+</a>
   <div class="gradient-overlay"></div>
 </body>
 </html>
